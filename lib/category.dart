@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:restaurant/sub_category.dart';
+import 'package:restaurant/product.dart';
 
 class Category extends StatefulWidget{
   @override
@@ -27,7 +27,8 @@ class _CategoryState extends State<Category> {
         title: Text("قائمة المأكولات",style: TextStyle(color: Colors.black),),
         backgroundColor: Colors.white,
         leading: InkWell(
-          child: Icon(Icons.arrow_back_ios,color: Colors.black,),
+         /* child: Icon(
+            Icons.arrow_back_ios,color: Colors.black,),*/
           onTap: (){
             Navigator.of(context).pop();
           },
@@ -66,7 +67,7 @@ class SingleCategory extends StatelessWidget{
              Navigator.push(
                  context,
                  MaterialPageRoute(
-                     builder: (context) => new SubCategory(Cat_id: cat_id,Cat_name: cat_name,))
+                     builder: (context) => new Product(Cat_id: cat_id,Cat_name: cat_name,))
              );
            },
             child: ListTile(

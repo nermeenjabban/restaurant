@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant/mydrawer.dart';
-import 'package:restaurant/test.dart';
+import 'package:restaurant/tables.dart';
+
 
 import 'category.dart';
 import 'home.dart';
@@ -15,8 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-    // home: Home(),
-      home: Category(),
+     home:Tables(),
     );
   }
 }

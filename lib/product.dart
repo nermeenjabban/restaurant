@@ -2,15 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:restaurant/product_detailes.dart';
 
-class SubCategory extends StatefulWidget{
+class Product extends StatefulWidget{
   final String Cat_id;
   final String Cat_name;
-  SubCategory({this.Cat_id,this.Cat_name});
+  Product({this.Cat_id,this.Cat_name});
   @override
-  _SubCategoryState createState() => _SubCategoryState();
+  _ProductState createState() => _ProductState();
 }
 
-class _SubCategoryState extends State<SubCategory> {
+class _ProductState extends State<Product> {
   var arr_SubCat=[{"subcat_id":"1", "subcat_name":"سمك مشوي", "subcat_image":"assets/cat1.png","Cat_name":"مأكولات بحرية"},
     {"subcat_id":"2", "subcat_name":"غالمبري ", "subcat_image":"assets/cat2.png","Cat_name":"مأكولات بحرية"},
     {"subcat_id":"3", "subcat_name":"سمك فيليه","subcat_image":"assets/cat3.png","Cat_name":"مأكولات بحرية"},
@@ -44,7 +44,7 @@ class _SubCategoryState extends State<SubCategory> {
             //scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context,int index){
             //  if(widget.Cat_name==arr_SubCat[index]["category"]){
-             return SingleSubCategory(
+             return SingleProduct(
                   subsubcat_id:  arr_SubCat[index]["subcat_id"],
                   subsubcat_image:  arr_SubCat[index]["subcat_image"],
                   subsubcat_name:  arr_SubCat[index]["subcat_name"],
@@ -59,13 +59,13 @@ class _SubCategoryState extends State<SubCategory> {
 }
 
 
-class SingleSubCategory extends StatelessWidget{
+class SingleProduct extends StatelessWidget{
   final String subsubcat_id;
   final String subsubcat_name;
   final String subsubcat_image;
   final String ctegory;
 
-  SingleSubCategory({this.subsubcat_id, this.subsubcat_name, this.subsubcat_image,this.ctegory});
+  SingleProduct({this.subsubcat_id, this.subsubcat_name, this.subsubcat_image,this.ctegory});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -74,10 +74,10 @@ class SingleSubCategory extends StatelessWidget{
         children: [
           InkWell(
             onTap: (){
-               Navigator.push(
+             /*  Navigator.push(
                  context,
                  MaterialPageRoute(
-                     builder: (context) => new ProductDetail()));
+                     builder: (context) => new ProductDetail()));*/
             },
             child: ListTile(
               leading:Container(
