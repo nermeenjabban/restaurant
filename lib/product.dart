@@ -11,18 +11,34 @@ class Product extends StatefulWidget{
 }
 
 class _ProductState extends State<Product> {
-  var arr_SubCat=[{"subcat_id":"1", "subcat_name":"سمك مشوي", "subcat_image":"assets/cat1.png","Cat_name":"مأكولات بحرية"},
-    {"subcat_id":"2", "subcat_name":"غالمبري ", "subcat_image":"assets/cat2.png","Cat_name":"مأكولات بحرية"},
-    {"subcat_id":"3", "subcat_name":"سمك فيليه","subcat_image":"assets/cat3.png","Cat_name":"مأكولات بحرية"},
-    {"subcat_id":"4", "subcat_name":"سمك مشوي", "subcat_image":"assets/cat4.png","Cat_name":""},
-    {"subcat_id":"5", "subcat_name":"سمك", "subcat_image":"assets/cat5.png","Cat_name":""},
-    {"subcat_id":"6", "subcat_name":"سمك", "subcat_image":"assets/cat6.png","Cat_name":""},
-    {"subcat_id":"7", "subcat_name":"سمك", "subcat_image":"assets/cat7.png","Cat_name":""},
-    {"subcat_id":"8", "subcat_name":"سمك", "subcat_image":"assets/cat8.png","Cat_name":""},
-    {"subcat_id":"9", "subcat_name":"سمك", "subcat_image":"assets/cat9.png","Cat_name":""},
-    {"subcat_id":"10", "subcat_name":"سمك", "subcat_image":"assets/cat10.png","Cat_name":""}
-
+  var arr_product=[{"product_id":"1", "product_name":"سمك مشوي", "product_image":"assets/cat1.png","Cat_name":"دجاج مقلي"},
+    {"product_id":"2", "product_name":"غالمبري ", "product_image":"assets/cat2.png","Cat_name":"مأكولات بحرية"},
+    {"product_id":"3", "product_name":"سمك فيليه","product_image":"assets/cat3.png","Cat_name":"مأكولات بحرية"},
+    {"product_id":"4", "product_name":"سمك مشوي", "product_image":"assets/cat4.png","Cat_name":"مأكولات بحرية"},
+    {"product_id":"5", "product_name":"شيش1", "product_image":"assets/cat5.png","Cat_name":"دجاج مشوي"},
+    {"product_id":"6", "product_name":"شيش2", "product_image":"assets/cat6.png","Cat_name":"دجاج مشوي"},
+    {"product_id":"7", "product_name":"سكالوب", "product_image":"assets/cat7.png","Cat_name":"دجاج مقلي"},
+    {"product_id":"8", "product_name":"كريسبي", "product_image":"assets/cat8.png","Cat_name":"دجاج مقلي"},
+    {"product_id":"9", "product_name":"سلطة", "product_image":"assets/cat9.png","Cat_name":"مقبلات"},
+    {"product_id":"10", "product_name":"متبل", "product_image":"assets/cat10.png","Cat_name":"مقبلات"}
   ];
+
+   GetCount(){
+    int count;
+    for(int i=0;i<arr_product.length;i++) {
+      if (widget.Cat_name == arr_product[i]["Cat_name"]) {
+        //print(widget.Cat_name);
+        return SingleProduct
+          (product_id: arr_product[i]["product_id"],
+            product_name: arr_product[i]["product_name"],
+            product_image: arr_product[i]["product_image"],
+            ctegory: arr_product[i]["Cat_name"]);
+      }
+    }
+  }
+
+
+  //List<SingleProduct> target= GetByCatname();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,18 +56,19 @@ class _ProductState extends State<Product> {
       body: Container(
         margin: EdgeInsets.only(top:10),
         child: ListView.builder(
-            itemCount: arr_SubCat.length,
-            //scrollDirection: Axis.horizontal,
+        //    itemCount: arr_product.length,
+         // itemCount: GetCount(),
             itemBuilder: (BuildContext context,int index){
-            //  if(widget.Cat_name==arr_SubCat[index]["category"]){
-             return SingleProduct(
-                  subsubcat_id:  arr_SubCat[index]["subcat_id"],
-                  subsubcat_image:  arr_SubCat[index]["subcat_image"],
-                  subsubcat_name:  arr_SubCat[index]["subcat_name"],
-                ctegory: arr_SubCat[index]["category"],
+            //GetByCatname();
+          /* return SingleProduct(
+                  product_id:  arr_product[index]["product_id"],
+                  product_image:  arr_product[index]["product_image"],
+                  product_name:  arr_product[index]["product_name"],
+                  ctegory: arr_product[index]["category"],
+                );*/
+              return GetCount();
 
-                );
-   // }
+
             }),
       ),
     );
@@ -60,12 +77,12 @@ class _ProductState extends State<Product> {
 
 
 class SingleProduct extends StatelessWidget{
-  final String subsubcat_id;
-  final String subsubcat_name;
-  final String subsubcat_image;
+  final String product_id;
+  final String product_name;
+  final String product_image;
   final String ctegory;
 
-  SingleProduct({this.subsubcat_id, this.subsubcat_name, this.subsubcat_image,this.ctegory});
+  SingleProduct({this.product_id, this.product_name, this.product_image,this.ctegory});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -86,8 +103,8 @@ class SingleProduct extends StatelessWidget{
                   borderRadius: BorderRadius.circular(50),
                   color: Colors.grey,
                 ),
-                child: Image.asset(subsubcat_image),),
-              title: Text(subsubcat_name,style: TextStyle(fontWeight: FontWeight.bold,fontSize:15,),),
+                child: Image.asset(product_image),),
+              title: Text(product_name,style: TextStyle(fontWeight: FontWeight.bold,fontSize:15,),),
               trailing: Icon(Icons.arrow_forward_ios),
             ),
           ),

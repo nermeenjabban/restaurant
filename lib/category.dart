@@ -9,7 +9,7 @@ class Category extends StatefulWidget{
 
 class _CategoryState extends State<Category> {
   var arr_Cat=[{"cat_id":"1", "cat_name":"مأكولات بحرية", "cat_image":"assets/cat1.png"},
-    {"cat_id":"2", "cat_name":"دجاج ", "cat_image":"assets/cat2.png"},
+    {"cat_id":"2", "cat_name":"دجاج مشوي ", "cat_image":"assets/cat2.png"},
     {"cat_id":"3", "cat_name":"دجاج مقلي","cat_image":"assets/cat3.png"},
     {"cat_id":"4", "cat_name":"مقبلات", "cat_image":"assets/cat4.png"},
     {"cat_id":"5", "cat_name":"العصائر", "cat_image":"assets/cat5.png"},
